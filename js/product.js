@@ -88,19 +88,25 @@ document.addEventListener('DOMContentLoaded', function () {
     el.setAttribute('rel', 'noopener noreferrer');
   });
 
-  /* ---------- Mobile hamburger menu ---------- */
-  var menuBtn  = document.querySelector('.menu');
+  /* ---------- Mobile hamburger menu (UPDATED & ROBUST) ---------- */
+  // HTML mein <button class="menu"> ya <button class="menu-btn"> jo bhi ho, yeh pakar lega
+  var menuBtn  = document.querySelector('.menu') || document.querySelector('.menu-btn') || document.querySelector('.hamburger');
   var navLinks = document.querySelector('.navlinks');
 
   if (menuBtn && navLinks) {
+    // Menu button par click event
     menuBtn.addEventListener('click', function (e) {
-      e.stopPropagation();
+      e.preventDefault(); // Default behavior roke
+      e.stopPropagation(); // Event bubble roke
+      
       var isOpen = navLinks.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      
+      // Icon change karein (☰ se ✕)
       menuBtn.textContent = isOpen ? '✕' : '☰';
     });
 
-    // Close menu when a nav link is clicked
+    // Jab koi nav link click ho toh menu band ho jaye
     navLinks.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         navLinks.classList.remove('open');
@@ -109,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
-    // Close menu when clicking outside
+    // Agar user menu ke bahar (bahar kisi bhi jaga) click kare toh menu band ho jaye
     document.addEventListener('click', function (e) {
       if (navLinks.classList.contains('open') &&
           !navLinks.contains(e.target) &&
@@ -119,6 +125,8 @@ document.addEventListener('DOMContentLoaded', function () {
         menuBtn.textContent = '☰';
       }
     });
+  } else {
+    console.warn("Hamburger Menu: Button ya NavLinks nahi mile. HTML classes check karein.");
   }
 
 });
