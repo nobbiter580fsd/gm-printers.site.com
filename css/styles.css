@@ -1,4 +1,7 @@
-/* GM Graphics & Printers — Business Cards page */
+/* ============================================================
+   GM Graphics & Printers — Global Styles (Business Cards page)
+   ============================================================ */
+
 :root {
   --blue: #1769d2;
   --navy: #102f57;
@@ -6,177 +9,87 @@
   --muted: #64748b;
   --bg: #f4f7fc;
   --border: #dce5f0;
+  --line: #dce5f0;
+  --ink: #26384d;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, system-ui, Arial, Helvetica, sans-serif;
   color: var(--text);
-  background: var(--bg);
+  background: #f8fbff;
+  line-height: 1.6;
+  overflow-x: hidden; /* Horizontal scroll rokne ke liye */
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
 
-/* .site-header {
-  min-height: 76px;
-  padding: 14px clamp(18px, 5vw, 70px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-} */
- body {
-    margin: 0;
-    font-family: Inter, system-ui, Arial, sans-serif;
-    color: var(--ink);
-    background: #f8fbff;
-    line-height: 1.6
-}
+img { max-width: 100%; display: block; }
 
-a {
-    text-decoration: none;
-    color: inherit
-}
+.container { width: min(1140px, 92%); margin: auto; }
 
-img {
-    max-width: 100%;
-    display: block
-}
-
-.container {
-    width: min(1140px, 92%);
-    margin: auto
-}
-
+/* ---------- Header / Nav ---------- */
 header {
-    background: #fff;
-    border-bottom: 1px solid var(--line);
-    position: sticky;
-    top: 0;
-    z-index: 10
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .nav {
-    min-height: 76px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
 }
 
 .brand {
-    font-weight: 850;
-    color: var(--blue);
-    font-size: 1.25rem
+  font-weight: 800;
+  color: var(--blue);
+  font-size: 1.25rem;
+  line-height: 1.5;
 }
 
 .brand span {
-    display: block;
-    color: var(--muted);
-    font-size: .68rem;
-    letter-spacing: 2px;
-    text-transform: uppercase
-}
-.navlinks {
-    display: flex;
-    gap: 22px;
-    align-items: center;
-    font-weight: 600;
-    font-size: .93rem
+  display: block;
+  color: var(--muted);
+  font-size: .68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-.navlinks a:hover {
-    color: var(--blue)
+.navlinks {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-weight: 600;
+  font-size: .93rem;
 }
+
+.navlinks a { transition: color .15s; }
+.navlinks a:hover { color: var(--blue); }
 
 .menu {
-    display: none;
-    background: none;
-    border: 0;
-    font-size: 1.5rem
-}
-
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 11px;
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
   color: var(--navy);
-  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 8px;
 }
+.menu:hover { background: #eef4fd; }
 
-.brand small {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  margin-top: 3px;
-}
-
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 43px;
-  height: 43px;
-  border-radius: 12px;
-  background: var(--blue);
-  color: white;
-  font-weight: 900;
-}
-.product-card img {
-    width: 100%;
-    height: 210px;
-    object-fit: cover;
-}
-.product-card img {
-    width: 100%;
-    height: 210px;
-    object-fit: contain;
-    background-color: #ffffff;
-    padding: 10px;
-    display: block;
-}
-
-.main-nav {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.main-nav a {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.main-nav a:hover {
-  color: var(--blue);
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 40px;
-  padding: 64px max(5vw, 22px);
-  background: linear-gradient(120deg, #fff 0%, #eaf2ff 100%);
-}
-
-.hero-copy {
-  max-width: 650px;
-}
-
+/* ---------- Eyebrow / headings ---------- */
 .eyebrow {
   color: var(--blue);
   font-size: 12px;
@@ -184,23 +97,15 @@ header {
   letter-spacing: 2px;
 }
 
-h1 {
+.section-heading h2,
+.contact-inner h2 {
   color: var(--navy);
-  font-size: clamp(36px, 5vw, 60px);
-  line-height: 1.08;
-  margin: 16px 0;
+  font-size: clamp(28px, 3vw, 38px);
+  margin: 10px 0;
+  line-height: 1.15;
 }
 
-h1 span {
-  color: var(--blue);
-}
-
-.hero p {
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 600px;
-}
-
+/* ---------- Buttons ---------- */
 .btn {
   display: inline-block;
   border: 0;
@@ -208,25 +113,12 @@ h1 span {
   padding: 13px 19px;
   font-weight: 800;
   cursor: pointer;
+  text-align: center;
 }
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: #1053a8; }
 
-.btn-primary {
-  background: var(--blue);
-  color: white;
-}
-
-.btn-primary:hover,
-.order-btn:hover {
-  background: #1053a8;
-}
-
-.hero-preview img {
-  width: 100%;
-  display: block;
-  border-radius: 20px;
-  box-shadow: 0 20px 55px #15375a20;
-}
-
+/* ---------- Products section ---------- */
 .products-section {
   padding: 60px max(5vw, 20px);
   max-width: 1500px;
@@ -241,20 +133,15 @@ h1 span {
   margin-bottom: 28px;
 }
 
-.section-heading h2,
-.contact-inner h2 {
-  color: var(--navy);
-  font-size: clamp(28px, 3vw, 38px);
-  margin: 10px 0;
-}
-
 .section-heading p {
   max-width: 420px;
   color: var(--muted);
   line-height: 1.7;
   font-size: 14px;
+  margin: 0;
 }
 
+/* ---------- Toolbar ---------- */
 .toolbar {
   display: flex;
   gap: 16px;
@@ -277,41 +164,33 @@ h1 span {
   padding: 10px 12px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: white;
+  background: #fff;
   font: inherit;
+  color: var(--text);
 }
 
+.toolbar input:focus,
+.toolbar select:focus {
+  outline: 2px solid #bcd4f5;
+  border-color: var(--blue);
+}
+
+/* ---------- Product grid ---------- */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
-  
 }
 
 .product-card {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 16px;
-  background: white;
+  background: #fff;
   transition: transform .2s, box-shadow .2s;
 }
-.product-card img{
-  width: 100%;
-    height: 240px;
-    object-fit: cover;
-    display: block;
-    overflow: hidden;
- 
-}
-
-.product-card img {
-    width: 100%;
-    height: 240px;
-    object-fit: contain;
-    display: block;
-    background-color: #ffffff;
-}
-
 
 .product-card:hover {
   transform: translateY(-4px);
@@ -321,21 +200,36 @@ h1 span {
 .image-link {
   display: block;
   background: #edf3fc;
+  width: 100%;
+  overflow: hidden; /* Image kinaron se bahar na jaye */
 }
 
+/* === IMAGES FIX: Side ki khali jaga khatam karne ke liye === */
 .product-card img {
-  display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  height: 220px;
+  object-fit: cover; /* Image box ko pura cover karegi */
+  object-position: center;
+  padding: 0; /* Padding hata di taake kinaron tak jaye */
+  display: block;
+  transition: transform .3s ease;
+}
+
+/* Hover par image thodi zoom hogi (Optional, look acha lagta hai) */
+.product-card:hover img {
+  transform: scale(1.05);
 }
 
 .product-info {
-  padding: 20px;
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .tag {
   display: inline-block;
+  align-self: flex-start;
   padding: 5px 9px;
   border-radius: 20px;
   background: #e8f1ff;
@@ -349,14 +243,16 @@ h1 span {
 .product-info h2 {
   margin: 12px 0 8px;
   color: var(--navy);
-  font-size: 20px;
+  font-size: 19px;
+  line-height: 1.3;
 }
 
 .product-info p {
   color: var(--muted);
   line-height: 1.6;
-  min-height: 46px;
   font-size: 14px;
+  margin: 0 0 12px;
+  flex: 1;
 }
 
 .product-bottom {
@@ -365,7 +261,7 @@ h1 span {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  margin-top: 18px;
+  margin-top: auto;
 }
 
 .product-bottom strong {
@@ -373,134 +269,233 @@ h1 span {
   font-size: 15px;
 }
 
+/* ---------- Order / WhatsApp button ---------- */
 .order-btn {
-  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   background: var(--blue);
-  color: white;
+  color: #fff;
   border-radius: 8px;
-  padding: 10px 12px;
+  padding: 10px 14px;
   font-weight: 800;
+  font-size: 13px;
   cursor: pointer;
+  transition: background .15s;
+  text-align: center;
 }
+.order-btn:hover { background: #1053a8; }
 
+/* ---------- Empty message ---------- */
 .empty-message {
   text-align: center;
   padding: 35px;
   color: var(--muted);
 }
 
+/* ---------- Contact section ---------- */
 .contact-section {
   background: #e8f1ff;
   padding: 55px 20px;
   text-align: center;
 }
 
-.contact-inner {
-  max-width: 720px;
-  margin: auto;
-}
+.contact-inner { max-width: 720px; margin: auto; }
 
 .contact-inner p {
   color: var(--muted);
   line-height: 1.7;
+  margin: 0 0 18px;
 }
 
+/* ---------- Footer ---------- */
 .footer {
-    background: #071d39;
-    color: #dbeafe;
-    padding: 45px 0
+  background: #071d39;
+  color: #dbeafe;
+  padding: 45px 0;
 }
 
 .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 30px
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 30px;
 }
+
+.footer h3 { margin: 0 0 10px; color: #fff; }
+.footer h4 { margin: 0 0 10px; color: #fff; }
 
 .footer a {
-    display: block;
-    color: #dbeafe;
-    margin: 6px 0
+  display: block;
+  color: #dbeafe;
+  margin: 6px 0;
 }
+.footer a:hover { color: #fff; }
 
+/* ---------- Floating WhatsApp ---------- */
 .wa {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    background: #16a34a;
-    color: white;
-    padding: 14px 18px;
-    border-radius: 50px;
-    font-weight: 800;
-    box-shadow: 0 6px 20px #0003;
-    z-index: 20
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #16a34a;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 50px;
+  font-weight: 800;
+  box-shadow: 0 6px 20px #0003;
+  z-index: 90;
 }
+.wa:hover { background: #128c3f; }
 
+
+/* ============================================================
+   RESPONSIVE — Tablet (<= 950px)
+   ============================================================ */
 @media (max-width: 950px) {
   .product-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .hero {
-    gap: 24px;
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 650px) {
-  .site-header {
-    align-items: flex-start;
+/* ============================================================
+   RESPONSIVE — Mobile (<= 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* Header + nav */
+  .nav { min-height: 64px; }
+
+  .menu { display: block; }
+
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
     flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 12px 24px #15375a1a;
+    padding: 6px 0;
+    z-index: 99;
   }
+  .navlinks.open { display: flex; }
 
-  .main-nav {
-    gap: 14px;
+  .navlinks a {
+    display: block;
+    padding: 13px 22px;
+    font-size: .95rem;
+    border-bottom: 1px solid #eef3fa;
   }
+  .navlinks a:last-child { border-bottom: 0; }
+  .navlinks a:hover { background: #eef4fd; }
 
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 42px;
-  }
-
-  .hero-preview {
-    order: -1;
-  }
-
+  /* Section heading */
   .section-heading {
-    align-items: flex-start;
     flex-direction: column;
-    gap: 4px;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .section-heading h2 {
+    font-size: clamp(24px, 6vw, 30px);
+  }
+  .section-heading p {
+    max-width: 100%;
   }
 
-  .product-grid {
-    grid-template-columns: 1fr;
+  /* Products section */
+  .products-section {
+    padding: 40px 16px;
   }
 
+  /* Toolbar */
+  .toolbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .toolbar label { width: 100%; }
   .toolbar input,
   .toolbar select {
-    min-width: min(280px, 84vw);
+    width: 100%;
+    min-width: 0;
+    font-size: 16px; /* iOS zoom prevent */
   }
 
-  .products-section {
-    padding-top: 40px;
+  /* Product grid: single column */
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  /* Product card */
+  .product-card img { 
+    height: 200px; 
+    object-fit: cover;
+  }
+  .product-info { padding: 16px; }
+  .product-info h2 { font-size: 17px; }
+
+  .product-bottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .product-bottom strong { font-size: 16px; }
+
+  .order-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* Contact section */
+  .contact-section { padding: 40px 16px; }
+  .contact-inner h2 { font-size: clamp(22px, 6vw, 28px); }
+  .contact-inner .btn {
+    display: block;
+    width: 100%;
+  }
+
+  /* Footer */
+  .footer { padding: 32px 0; }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  /* Floating WhatsApp */
+  .wa {
+    right: 14px;
+    bottom: 14px;
+    padding: 12px 16px;
+    font-size: 14px;
   }
 }
-@media (max-width: 650px) {
-  /* ... aapka purana code ... */
-  
-  .site-header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
 
-  /* .main-nav ko update karein */
-  .main-nav {
-    display: flex;
-    flex-wrap: wrap; /* Yeh links ko agli line par bhej dega */
-    justify-content: center; /* Links ko center kar dega */
-    gap: 10px; 
-    width: 100%;
-    margin-top: 15px;
+/* ============================================================
+   RESPONSIVE — Small phones (<= 420px)
+   ============================================================ */
+@media (max-width: 420px) {
+  .brand { font-size: 1.2rem; }
+  .brand span { font-size: .55rem; letter-spacing: 1.5px; }
+
+  .product-card img { 
+    height: 180px; 
+    object-fit: cover;
   }
-  
-  /* ... baqi aapka code ... */
+  .product-info h2 { font-size: 16px; }
+  .tag { font-size: 9px; }
+
+  .product-info p { font-size: 13px; }
+
+  .wa {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
 }
